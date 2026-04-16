@@ -44,4 +44,26 @@ const bookStore = {
 }
 
 // Write your code here!
+// 1. Update the Header (Line 10 in HTML has id="header")
+const header = document.querySelector('#header');
+header.textContent = "Flatbooks Technical Books";
 
+// 2. Loop through the books
+bookStore.books.forEach(book => {
+    // Use 'li' to match the <ul> container in your HTML
+    const card = document.createElement('li'); 
+    const title = document.createElement('h2');
+    const author = document.createElement('p');
+    const image = document.createElement('img');
+
+    // Assign content
+    title.textContent = book.title;
+    author.textContent = book.author;
+    image.src = book.imageUrl;
+
+    // Put them together
+    card.append(title, author, image);
+    
+    // Append to the <ul> with id="book-list"
+    document.querySelector('#book-list').appendChild(card);
+});
